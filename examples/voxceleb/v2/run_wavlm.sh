@@ -7,7 +7,7 @@
 stage=-1
 stop_stage=-1
 
-data=data
+data=/scratch/users/astar/bmsi/liut1/data/VoxForWe
 data_type="shard"  # shard/raw
 
 config=conf/ecapa_tdnn_WavLM_frozen.yaml
