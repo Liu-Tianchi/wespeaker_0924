@@ -10,9 +10,10 @@ stop_stage=-1
 data=/scratch/users/astar/bmsi/liut1/data/VoxForWe
 data_type="shard"  # shard/raw
 
-config=conf/ecapa_tdnn_WavLM_frozen.yaml
-exp_dir=exp/ECAPA_TDNN_GLOB_c512-ASTP-emb192-WavLM_large_frozen_num_frms150-aug0.6-spTrue-saFalse-ArcMargin_intertopk_subcenter-SGD-epoch150
-gpus="[0,1,2,3,4,5,6,7]"
+config=conf/ecapa_tdnn_WavLM_frozen_0925.yaml #ecapa_tdnn_WavLM_frozen.yaml
+exp_dir=exp/240925_ECAPA_TDNN_GLOB_c512_ASTP_emb192_WavLM_Large_frozen_num_frms150_aug06_spTrue_saFalse_ArcMargin_intertopk_subcenter_SGD_e150
+# gpus="[0]"
+gpus="[0,1,2,3]"
 num_avg=10
 checkpoint=
 
@@ -22,9 +23,9 @@ top_n=300
 
 # setup for joint ft and lmft
 joint_ft_config=conf/ecapa_tdnn_WavLM_joint_ft.yaml
-joint_ft_exp_dir=exp/ECAPA_TDNN_GLOB_c512-ASTP-emb192-WavLM_Large_joint_ft-num_frms150-aug0.6-spTrue-saFalse-ArcMargin_intertopk_subcenter-SGD-epoch20
+joint_ft_exp_dir=exp/240925_ECAPA_TDNN_GLOB_c512_ASTP_emb192_WavLM_Large_joint_ft_num_frms150_aug0.6_spTrue_saFalse_ArcMargin_intertopk_subcenter_SGD_epoch20
 joint_lmft_config=conf/ecapa_tdnn_WavLM_joint_lmft.yaml
-joint_lmft_exp_dir=exp/ECAPA_TDNN_GLOB_c512-ASTP-emb192-WavLM_Large_joint_lmft-num_frms300-aug0.6-spTrue-saFalse-ArcMargin_intertopk_subcenter-SGD-epoch10
+joint_lmft_exp_dir=exp/240925_ECAPA_TDNN_GLOB_c512_ASTP_emb192_WavLM_Large_joint_lmft_num_frms300_aug0.6_spTrue_saFalse_ArcMargin_intertopk_subcenter_SGD_epoch10
 
 . tools/parse_options.sh || exit 1
 
