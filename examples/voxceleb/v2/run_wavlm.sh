@@ -11,11 +11,13 @@ data=/scratch/users/astar/bmsi/liut1/data/VoxForWe
 data_type="shard"  # shard/raw
 
 config=conf/ecapa_tdnn_WavLM_frozen_0925.yaml #ecapa_tdnn_WavLM_frozen.yaml
-exp_dir=exp/240925_ECAPA_TDNN_GLOB_c512_ASTP_emb192_WavLM_Large_frozen_num_frms150_aug06_spTrue_saFalse_ArcMargin_intertopk_subcenter_SGD_e150
+exp_dir=/home/users/astar/bmsi/liut1/scratch/v2_2409_exp/240925_ECAPA_TDNN_GLOB_c512_ASTP_emb192_WavLM_Large_frozen_num_frms150_aug06_spTrue_saFalse_ArcMargin_intertopk_subcenter_SGD_e150
+#exp/240925_ECAPA_TDNN_GLOB_c512_ASTP_emb192_WavLM_Large_frozen_num_frms150_aug06_spTrue_saFalse_ArcMargin_intertopk_subcenter_SGD_e150
 # gpus="[0]"
 gpus="[0,1,2,3]"
 num_avg=10
-checkpoint=
+checkpoint="/home/users/astar/bmsi/liut1/scratch/v2_2409_exp/240925_ECAPA_TDNN_GLOB_c512_ASTP_emb192_WavLM_Large_frozen_num_frms150_aug06_spTrue_saFalse_ArcMargin_intertopk_subcenter_SGD_e150/models/model_20.pt"
+#"/home/users/astar/bmsi/liut1/wespeaker_0924/examples/voxceleb/v2/exp/240925_ECAPA_TDNN_GLOB_c512_ASTP_emb192_WavLM_Large_frozen_num_frms150_aug06_spTrue_saFalse_ArcMargin_intertopk_subcenter_SGD_e150/models/model_5.pt"
 
 trials="vox1_O_cleaned.kaldi vox1_E_cleaned.kaldi vox1_H_cleaned.kaldi"
 score_norm_method="asnorm"  # asnorm/snorm
@@ -82,7 +84,7 @@ if [ ${stage} -le 4 ] && [ ${stop_stage} -ge 4 ]; then
   echo "Extract embeddings ..."
   local/extract_vox.sh \
     --exp_dir $exp_dir --model_path $avg_model \
-    --nj 8 --gpus $gpus --data_type $data_type --data ${data}
+    --nj 4 --gpus $gpus --data_type $data_type --data ${data}
 fi
 
 if [ ${stage} -le 5 ] && [ ${stop_stage} -ge 5 ]; then
